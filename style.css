@@ -1,0 +1,822 @@
+/* Basic Reset & General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Default font */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f8fa; /* Light blue/grey background */
+}
+
+/* Language-specific styles */
+html[data-lang="ar"] body {
+    direction: rtl;
+    font-family: 'Noto Kufi Arabic', sans-serif; /* Arabic font */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: #fff; /* White header */
+    color: #005A9C; /* Dark blue for text */
+    padding: 1rem 0;
+    border-bottom: 3px solid #007BFF; /* Blue accent */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.4rem; /* Adjusted size slightly */
+    font-weight: bold;
+}
+html[data-lang="ar"] header .logo {
+    font-size: 1.3rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+html[data-lang="ar"] header nav ul li {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+
+header nav ul li a {
+    color: #005A9C;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav ul li a:hover, header nav ul li a.active {
+    background-color: #007BFF; /* Blue hover/active background */
+    color: #fff; /* White text on hover/active */
+}
+
+
+.lang-switcher button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px; /* Increased margin */
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit; /* Use body font */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+html[data-lang="ar"] .lang-switcher button {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.lang-switcher button:hover {
+    background: #0056b3;
+}
+
+/* Hide elements not of the current language */
+.lang-fr, .lang-ar {
+    display: none;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #007BFF, #005A9C); /* Blue gradient */
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+html[data-lang="ar"] .hero-content h1 {
+    font-size: 2.5rem; /* Arabic fonts can appear larger */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-content .emphasis {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #cceeff; /* Lighter blue for emphasis */
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #FFA500; /* Orange CTA */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.cta-button:hover {
+    background: #cc8400; /* Darker orange */
+    transform: translateY(-2px);
+}
+
+/* Intro, Symptoms, Technology Sections */
+.intro-section, .symptoms-section, .technology-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #fff; /* White sections */
+    margin-bottom: 1px; /* Thin line between sections */
+    border-bottom: 1px solid #e7e7e7;
+}
+.intro-section:last-of-type, .symptoms-section:last-of-type, .technology-section:last-of-type { /* Target last section before footer */
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
+.intro-section h2, .symptoms-section h2, .technology-section h2 {
+    font-size: 2rem;
+    color: #005A9C;
+    margin-bottom: 30px; /* Increased margin */
+}
+html[data-lang="ar"] .intro-section h2,
+html[data-lang="ar"] .symptoms-section h2,
+html[data-lang="ar"] .technology-section h2 {
+    font-size: 1.8rem;
+}
+
+
+.intro-section p, .symptoms-section p, .technology-section p {
+    font-size: 1.05rem; /* Slightly larger text */
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 20px auto; /* Increased bottom margin */
+}
+
+.intro-section ul, .technology-section ul.tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px auto; /* Increased margin */
+    max-width: 650px; /* Slightly wider */
+    text-align: left;
+}
+html[data-lang="ar"] .intro-section ul,
+html[data-lang="ar"] .technology-section ul.tech-list {
+    text-align: right;
+}
+
+.intro-section ul li, .technology-section ul.tech-list li {
+    background: #e7f3fe;
+    margin-bottom: 10px; /* Increased space */
+    padding: 12px 15px; /* Adjusted padding */
+    border-left: 4px solid #007BFF; /* Thicker border */
+    border-radius: 4px;
+    font-size: 1rem;
+}
+html[data-lang="ar"] .intro-section ul li,
+html[data-lang="ar"] .technology-section ul.tech-list li {
+    border-left: none;
+    border-right: 4px solid #007BFF;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background: #007BFF;
+    color: white;
+    padding: 12px 24px; /* Slightly larger */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 25px; /* Increased margin */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.learn-more-button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax */
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.symptom-item {
+    background: #e0f0ff;
+    padding: 25px 20px; /* Adjusted padding */
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #005A9C;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.symptom-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,90,156,0.15);
+}
+
+.emphasis-small {
+    font-style: italic;
+    color: #007BFF;
+    font-weight: bold;
+    margin-top: 25px !important; /* Increased margin */
+    display: block; /* Ensure it takes full width if needed */
+}
+
+/* Footer */
+footer {
+    background: #2c3e50; /* Darker, more modern footer color */
+    color: #ecf0f1; /* Lighter text for contrast */
+    padding: 40px 0 20px 0; /* Adjusted padding */
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px; /* Increased gap */
+    margin-bottom: 30px;
+    text-align: left;
+}
+html[data-lang="ar"] .footer-content {
+    text-align: right;
+}
+
+
+.footer-content .contact-info, .footer-content .map-placeholder {
+    flex: 1;
+    min-width: 300px; /* Slightly larger min-width */
+}
+
+.footer-content h3 {
+    color: #3498db; /* Brighter blue for footer headings */
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+    font-size: 0.95rem; /* Slightly larger */
+    line-height: 1.7;
+    display: flex; /* For aligning icon and text */
+    align-items: flex-start; /* Align items to the start for multi-line text */
+}
+
+.footer-content p i { /* Icon styling */
+    color: #3498db; /* Icon color */
+    margin-right: 10px;
+    margin-left: 0; /* Reset margin-left for LTR */
+    width: 20px; /* Fixed width for alignment */
+    text-align: center; /* Center icon in its box */
+    padding-top: 3px; /* Small top padding to align with text baseline */
+}
+html[data-lang="ar"] .footer-content p i {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+/* For the address, ensure the icon aligns with the "Adresse:"/"العنوان:" label */
+.footer-content p i.fa-map-marker-alt + strong + br + .address-text,
+.footer-content p i.fa-map-marker-alt + .address-text {
+    display: inline-block; /* Allow address text to flow naturally */
+}
+.footer-content p i.fa-map-marker-alt {
+    align-self: flex-start; /* Keep icon at the top for multi-line address */
+}
+.address-text {
+    flex: 1; /* Allow address text to take remaining space */
+}
+
+
+.footer-content a {
+    color: #95a5a6; /* Lighter grey for links initially */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #3498db; /* Blue on hover */
+    text-decoration: underline;
+}
+
+.map-placeholder iframe {
+    border-radius: 5px;
+    width: 100%; /* Ensure iframe is responsive */
+    max-width: 450px; /* Max width for the map iframe */
+    display: block;
+    margin: 0 auto 10px auto; /* Center map if it's smaller than container */
+}
+.map-placeholder p a { /* Specific styling for the "View on Google Maps" link */
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 30px;
+    border-top: 1px solid #3e5062; /* Border color matching footer */
+    padding-top: 20px;
+    color: #bdc3c7; /* Muted color for copyright */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        padding-bottom: 10px; /* Add some padding when stacked */
+    }
+    header .logo {
+        margin-bottom: 10px;
+    }
+    header nav {
+        width: 100%; /* Make nav take full width */
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        width: 100%;
+    }
+    header nav ul li {
+        margin: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+    html[data-lang="ar"] header nav ul li {
+        margin: 8px 0;
+    }
+    header nav ul li a {
+        display: block; /* Make links full width */
+    }
+    .lang-switcher {
+        margin-top: 10px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    html[data-lang="ar"] .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-content .contact-info, .footer-content .map-placeholder {
+       margin-bottom: 30px;
+       width: 90%; /* Ensure they don't stretch too wide */
+       max-width: 400px; /* Max width for these sections on mobile */
+       text-align: center !important; /* Center text on mobile */
+    }
+    html[data-lang="ar"] .footer-content .contact-info,
+    html[data-lang="ar"] .footer-content .map-placeholder {
+        text-align: center !important;
+    }
+    /* Adjust icon alignment for centered text on mobile */
+    html[data-lang="ar"] .footer-content p, .footer-content p {
+        justify-content: center; /* Center icon and text within the p tag */
+    }
+    /* For address on mobile, if text is centered, might need to adjust icon position or text flow */
+    .footer-content p i.fa-map-marker-alt + strong + br + .address-text {
+       display: block; /* Stack address text below label on mobile */
+       margin-top: 5px;
+    }
+     html[data-lang="ar"] .footer-content p i.fa-map-marker-alt + strong + br + .address-text {
+       display: block;
+       margin-top: 5px;
+    }
+
+
+    .map-placeholder iframe {
+        height: 200px; /* Adjust map height on mobile */
+    }
+}
+
+/* style.css - Additions for apnea.html */
+
+/* Page Title Section (Generic for subpages) */
+.page-title-section {
+    background-color: #005A9C; /* Consistent with header or a variation */
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-title-section h1 {
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+html[data-lang="ar"] .page-title-section h1 {
+    font-size: 2rem;
+}
+
+/* Content Section for subpages */
+.content-section .container article {
+    background-color: #fff;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.content-section .container article h2 {
+    color: #005A9C;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0f0ff;
+}
+html[data-lang="ar"] .content-section .container article h2 {
+    font-size: 1.6rem;
+}
+
+.content-section .container article h3 {
+    color: #007BFF;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+html[data-lang="ar"] .content-section .container article h3 {
+    font-size: 1.3rem;
+}
+
+.content-section .container article p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* Lists for Symptoms, Consequences, etc. */
+.symptoms-list, .consequences-list {
+    list-style: none;
+    padding-left: 0;
+}
+html[data-lang="ar"] .symptoms-list,
+html[data-lang="ar"] .consequences-list {
+    padding-right: 0;
+}
+
+.symptoms-list li, .consequences-list li {
+    display: flex;
+    align-items: flex-start; /* Align icon with first line of text */
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.symptoms-list li i, .consequences-list li i,
+.apnea-type h3 i.type-icon { /* Icon styling for lists and types */
+    color: #007BFF; /* Blue icon color */
+    margin-right: 12px;
+    margin-left: 0;
+    width: 22px; /* Ensure consistent icon width */
+    text-align: center;
+    font-size: 1.1rem; /* Icon size */
+    padding-top: 2px; /* Align better with text */
+}
+html[data-lang="ar"] .symptoms-list li i,
+html[data-lang="ar"] .consequences-list li i,
+html[data-lang="ar"] .apnea-type h3 i.type-icon {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+/* Apnea Type Styling */
+.apnea-type {
+    background-color: #f9f9f9;
+    border: 1px solid #e7e7e7;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+.apnea-type h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+.apnea-type h3 i.type-icon {
+    font-size: 1.3rem; /* Slightly larger for type headings */
+}
+
+
+/* Emphasis highlight for important text */
+.emphasis-highlight {
+    background-color: #fff3cd; /* Light yellow highlight */
+    padding: 10px;
+    border-left: 4px solid #ffeeba; /* Yellow border */
+    border-radius: 4px;
+    margin-top: 15px !important;
+    display: block;
+    font-weight: bold;
+    color: #856404; /* Darker text for yellow background */
+}
+html[data-lang="ar"] .emphasis-highlight {
+    border-left: none;
+    border-right: 4px solid #ffeeba;
+}
+
+
+/* CTA Section within Apnea Page */
+.cta-section-apnea {
+    text-align: center;
+    padding-top: 20px; /* Add some space above CTA if it's the last article */
+}
+.cta-section-apnea h2 {
+    border-bottom: none; /* Remove border for CTA heading */
+}
+.cta-section-apnea .cta-button {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.cta-section-apnea .secondary-cta {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #6c757d; /* Grey for secondary action */
+    color: white;
+}
+.cta-section-apnea .secondary-cta:hover {
+    background-color: #5a6268;
+}
+
+
+/* Responsive adjustments for apnea.html content */
+@media (max-width: 768px) {
+    .page-title-section h1 {
+        font-size: 1.8rem;
+    }
+    html[data-lang="ar"] .page-title-section h1 {
+        font-size: 1.6rem;
+    }
+    .content-section .container article h2 {
+        font-size: 1.6rem;
+    }
+    html[data-lang="ar"] .content-section .container article h2 {
+        font-size: 1.4rem;
+    }
+    .content-section .container article h3 {
+        font-size: 1.2rem;
+    }
+    html[data-lang="ar"] .content-section .container article h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* style.css - Additions for contact.html */
+
+.contact-page-section .container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Adjust column ratio as needed */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+html[data-lang="ar"] .contact-grid {
+    direction: rtl; /* Ensure grid respects RTL */
+}
+
+.contact-details-column h2,
+.contact-form-column h2,
+.map-section h2 {
+    color: #005A9C;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0f0ff;
+}
+html[data-lang="ar"] .contact-details-column h2,
+html[data-lang="ar"] .contact-form-column h2,
+html[data-lang="ar"] .map-section h2 {
+    font-size: 1.6rem;
+}
+
+
+.contact-details-column p:first-of-type,
+.contact-form-column p:first-of-type { /* First paragraph after heading */
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-item i {
+    color: #007BFF;
+    font-size: 1.3rem; /* Icon size */
+    margin-right: 15px;
+    margin-left: 0;
+    width: 25px; /* Consistent width */
+    text-align: center;
+    padding-top: 3px; /* Align with text */
+}
+html[data-lang="ar"] .contact-item i {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.contact-item div {
+    flex: 1;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #005A9C;
+}
+
+.contact-item a {
+    color: #007BFF;
+    text-decoration: none;
+}
+.contact-item a:hover {
+    text-decoration: underline;
+}
+.contact-item em {
+    display: block;
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+/* Contact Form Styling */
+.contact-form-column {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+html[data-lang="ar"] .form-group label {
+    text-align: right;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box; /* Important for padding and border */
+}
+html[data-lang="ar"] .form-group input[type="text"],
+html[data-lang="ar"] .form-group input[type="tel"],
+html[data-lang="ar"] .form-group input[type="email"],
+html[data-lang="ar"] .form-group input[type="date"],
+html[data-lang="ar"] .form-group textarea {
+    direction: rtl;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-note small {
+    display: block;
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.form-submit-button { /* Uses .cta-button styles but can be overridden */
+    width: 100%;
+    padding: 15px; /* Make it a bit larger */
+    font-size: 1.1rem;
+}
+
+#form-message p {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0;
+}
+#form-message p[style*="color: red"] {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+#form-message p[style*="color: green"] {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+
+/* Map Section */
+.map-section {
+    margin-top: 40px;
+    text-align: center;
+}
+.map-section h2 {
+    text-align: center; /* Explicitly center map heading */
+}
+.map-section iframe {
+    max-width: 100%; /* Ensure map is responsive */
+}
+
+
+/* Responsive adjustments for contact.html */
+@media (max-width: 992px) { /* Tablet and below */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack columns */
+        gap: 30px;
+    }
+    .contact-form-column {
+        order: -1; /* Move form above details on smaller screens if preferred */
+    }
+     html[data-lang="ar"] .contact-form-column {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .contact-details-column h2,
+    .contact-form-column h2,
+    .map-section h2 {
+        font-size: 1.6rem;
+    }
+     html[data-lang="ar"] .contact-details-column h2,
+    html[data-lang="ar"] .contact-form-column h2,
+    html[data-lang="ar"] .map-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .contact-form-column {
+        padding: 20px;
+    }
+}
