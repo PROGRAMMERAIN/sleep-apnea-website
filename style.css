@@ -45,7 +45,7 @@ header .container {
 }
 
 header .logo {
-    font-size: 1.4rem; /* Adjusted size slightly */
+    font-size: 1.3rem; /* Adjusted for potentially longer "Cabinet" */
     font-weight: bold;
 }
 html[data-lang="ar"] header .logo {
@@ -255,6 +255,14 @@ html[data-lang="ar"] .technology-section ul.tech-list li {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,90,156,0.15);
 }
+.symptom-icon-inline { /* For icons inside symptom items, if needed */
+    margin-right: 8px;
+    font-size: 1.2em; /* Adjust size as needed */
+}
+html[data-lang="ar"] .symptom-icon-inline {
+    margin-left: 8px;
+    margin-right: 0;
+}
 
 .emphasis-small {
     font-style: italic;
@@ -342,17 +350,15 @@ html[data-lang="ar"] .footer-content p i {
     text-decoration: underline;
 }
 
-.map-placeholder iframe {
+.map-placeholder iframe { /* Styles for the iframe itself if needed */
     border-radius: 5px;
     width: 100%; /* Ensure iframe is responsive */
     max-width: 450px; /* Max width for the map iframe */
     display: block;
     margin: 0 auto 10px auto; /* Center map if it's smaller than container */
 }
-.map-placeholder p a { /* Specific styling for the "View on Google Maps" link */
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
+.footer-map-embed { /* Specific class for the div wrapping the map in footer */
+    /* Any specific styling for the map container in the footer */
 }
 
 
@@ -372,6 +378,10 @@ html[data-lang="ar"] .footer-content p i {
     }
     header .logo {
         margin-bottom: 10px;
+        font-size: 1.2rem; /* Adjust logo size on mobile */
+    }
+    html[data-lang="ar"] header .logo {
+         font-size: 1.2rem;
     }
     header nav {
         width: 100%; /* Make nav take full width */
@@ -442,17 +452,228 @@ html[data-lang="ar"] .footer-content p i {
     }
 }
 
-/* style.css - Additions for apnea.html */
+/* === Styles for About Page (`about.html`) === */
+.about-page-section .container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
 
-/* Page Title Section (Generic for subpages) */
-.page-title-section {
-    background-color: #005A9C; /* Consistent with header or a variation */
+.about-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Fixed width for image, rest for text */
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: flex-start; /* Align items to the top */
+}
+html[data-lang="ar"] .about-grid {
+    direction: rtl;
+}
+
+.about-image-column {
+    /* Styles for the image column */
+}
+.doctor-photo {
+    width: 100%;
+    max-width: 350px; /* Ensure it doesn't exceed column width */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover; /* Ensure image covers the area well */
+}
+
+.about-text-column article {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.about-text-column article h2,
+.clinic-info-section h2 { /* Shared style for main headings in about page articles */
+    color: #005A9C;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0f0ff;
+}
+html[data-lang="ar"] .about-text-column article h2,
+html[data-lang="ar"] .clinic-info-section h2 {
+    font-size: 1.6rem;
+}
+
+.about-text-column article h3 {
+    color: #007BFF;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+html[data-lang="ar"] .about-text-column article h3 {
+    font-size: 1.3rem;
+}
+
+.about-text-column article p,
+.clinic-info-section p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.expertise-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+html[data-lang="ar"] .expertise-list {
+    padding-right: 0;
+}
+.expertise-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #007BFF;
+    border-radius: 0 4px 4px 0;
+}
+html[data-lang="ar"] .expertise-list li {
+    border-left: none;
+    border-right: 3px solid #007BFF;
+    border-radius: 4px 0 0 4px;
+}
+.expertise-list li i {
+    color: #007BFF;
+    margin-right: 12px;
+    margin-left: 0;
+    width: 22px;
+    text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2px;
+}
+html[data-lang="ar"] .expertise-list li i {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+/* Clinic Info Section (for "Our Cabinet") */
+.clinic-info-section {
+    background-color: #fff;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.clinic-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.feature-item {
+    background-color: #e7f3fe;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #cce7ff;
+}
+.feature-item i {
+    font-size: 2rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+    display: block;
+}
+.feature-item h4 {
+    font-size: 1.2rem;
+    color: #005A9C;
+    margin-bottom: 8px;
+}
+html[data-lang="ar"] .feature-item h4 {
+    font-size: 1.1rem;
+}
+.feature-item p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+
+.cta-section-about {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+}
+.cta-section-about .cta-button {
+    margin-right: 10px;
+}
+html[data-lang="ar"] .cta-section-about .cta-button {
+    margin-right: 0;
+    margin-left: 10px;
+}
+.cta-section-about .secondary-cta {
+    background-color: #6c757d; /* Grey for secondary action */
+}
+.cta-section-about .secondary-cta:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive adjustments for about.html content */
+@media (max-width: 992px) { /* Tablets */
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack image and text */
+    }
+    .about-image-column {
+        margin-bottom: 30px;
+        text-align: center; /* Center image when stacked */
+    }
+    .doctor-photo {
+        max-width: 300px; /* Control image size when stacked */
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .page-title-section h1 {
+        font-size: 1.8rem;
+    }
+    html[data-lang="ar"] .page-title-section h1 {
+        font-size: 1.6rem;
+    }
+    .about-text-column article h2, .clinic-info-section h2 {
+        font-size: 1.6rem;
+    }
+    html[data-lang="ar"] .about-text-column article h2,
+    html[data-lang="ar"] .clinic-info-section h2 {
+        font-size: 1.4rem;
+    }
+    .about-text-column article h3 {
+        font-size: 1.2rem;
+    }
+    html[data-lang="ar"] .about-text-column article h3 {
+        font-size: 1.1rem;
+    }
+    .cta-section-about .cta-button, .cta-section-about .secondary-cta {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    html[data-lang="ar"] .cta-section-about .cta-button,
+    html[data-lang="ar"] .cta-section-about .secondary-cta {
+        margin-left: 0;
+    }
+}
+
+
+/* === Styles for Apnea Page (`apnea.html`) === */
+.page-title-section { /* This is generic for all subpages */
+    background-color: #005A9C;
     color: white;
     padding: 30px 0;
     text-align: center;
     margin-bottom: 30px;
 }
-
 .page-title-section h1 {
     font-size: 2.2rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -461,7 +682,7 @@ html[data-lang="ar"] .page-title-section h1 {
     font-size: 2rem;
 }
 
-/* Content Section for subpages */
+/* Content Section for subpages (apnea, contact potentially) */
 .content-section .container article {
     background-color: #fff;
     padding: 25px 30px;
@@ -469,6 +690,10 @@ html[data-lang="ar"] .page-title-section h1 {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+.content-section .container article:last-child { /* No bottom margin for the last article in a content section */
+    margin-bottom: 0;
+}
+
 
 .content-section .container article h2 {
     color: #005A9C;
@@ -497,8 +722,8 @@ html[data-lang="ar"] .content-section .container article h3 {
     color: #444;
 }
 
-/* Lists for Symptoms, Consequences, etc. */
-.symptoms-list, .consequences-list {
+/* Lists for Symptoms, Consequences, etc. on Apnea page */
+.symptoms-list, .consequences-list { /* Used on apnea.html */
     list-style: none;
     padding-left: 0;
 }
@@ -513,7 +738,18 @@ html[data-lang="ar"] .consequences-list {
     margin-bottom: 12px;
     font-size: 1rem;
     color: #333;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #007BFF; /* Consistent with expertise list */
+    border-radius: 0 4px 4px 0;
 }
+html[data-lang="ar"] .symptoms-list li,
+html[data-lang="ar"] .consequences-list li {
+    border-left: none;
+    border-right: 3px solid #007BFF;
+    border-radius: 4px 0 0 4px;
+}
+
 
 .symptoms-list li i, .consequences-list li i,
 .apnea-type h3 i.type-icon { /* Icon styling for lists and types */
@@ -532,10 +768,10 @@ html[data-lang="ar"] .apnea-type h3 i.type-icon {
     margin-right: 0;
 }
 
-/* Apnea Type Styling */
+/* Apnea Type Styling (on apnea.html) */
 .apnea-type {
-    background-color: #f9f9f9;
-    border: 1px solid #e7e7e7;
+    background-color: #f0f8ff; /* Light alice blue */
+    border: 1px solid #d1e7fd;
     padding: 20px;
     margin-top: 20px;
     border-radius: 6px;
@@ -550,16 +786,18 @@ html[data-lang="ar"] .apnea-type h3 i.type-icon {
 }
 
 
-/* Emphasis highlight for important text */
+/* Emphasis highlight for important text (generic or for apnea page) */
 .emphasis-highlight {
     background-color: #fff3cd; /* Light yellow highlight */
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     border-left: 4px solid #ffeeba; /* Yellow border */
     border-radius: 4px;
-    margin-top: 15px !important;
+    margin-top: 20px !important; /* Ensure it has space */
+    margin-bottom: 20px !important;
     display: block;
     font-weight: bold;
     color: #856404; /* Darker text for yellow background */
+    font-size: 1.05rem; /* Slightly larger font */
 }
 html[data-lang="ar"] .emphasis-highlight {
     border-left: none;
@@ -590,14 +828,8 @@ html[data-lang="ar"] .emphasis-highlight {
 }
 
 
-/* Responsive adjustments for apnea.html content */
+/* Responsive adjustments for apnea.html content (shared with other subpage article content) */
 @media (max-width: 768px) {
-    .page-title-section h1 {
-        font-size: 1.8rem;
-    }
-    html[data-lang="ar"] .page-title-section h1 {
-        font-size: 1.6rem;
-    }
     .content-section .container article h2 {
         font-size: 1.6rem;
     }
@@ -612,9 +844,9 @@ html[data-lang="ar"] .emphasis-highlight {
     }
 }
 
-/* style.css - Additions for contact.html */
 
-.contact-page-section .container {
+/* === Styles for Contact Page (`contact.html`) === */
+.contact-page-section .container { /* Specific wrapper for contact page content */
     padding-top: 20px;
     padding-bottom: 40px;
 }
@@ -624,9 +856,17 @@ html[data-lang="ar"] .emphasis-highlight {
     grid-template-columns: 1fr 1.2fr; /* Adjust column ratio as needed */
     gap: 40px;
     margin-bottom: 40px;
+    align-items: flex-start;
 }
 html[data-lang="ar"] .contact-grid {
     direction: rtl; /* Ensure grid respects RTL */
+}
+
+.contact-details-column, .contact-form-column {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .contact-details-column h2,
@@ -674,7 +914,7 @@ html[data-lang="ar"] .contact-item i {
     margin-right: 0;
 }
 
-.contact-item div {
+.contact-item div { /* Wrapper for text next to icon */
     flex: 1;
 }
 
@@ -691,21 +931,15 @@ html[data-lang="ar"] .contact-item i {
 .contact-item a:hover {
     text-decoration: underline;
 }
-.contact-item em {
+.contact-item em { /* For notes like opening hours */
     display: block;
     font-size: 0.9em;
     color: #6c757d;
     margin-top: 5px;
 }
 
-/* Contact Form Styling */
-.contact-form-column {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
 
+/* Contact Form Styling */
 .form-group {
     margin-bottom: 20px;
 }
@@ -745,7 +979,7 @@ html[data-lang="ar"] .form-group textarea {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 100px; /* Slightly taller textarea */
 }
 
 .form-note small {
@@ -756,37 +990,48 @@ html[data-lang="ar"] .form-group textarea {
     line-height: 1.5;
 }
 
-.form-submit-button { /* Uses .cta-button styles but can be overridden */
+.form-submit-button { /* Uses .cta-button styles by applying the class */
     width: 100%;
     padding: 15px; /* Make it a bit larger */
     font-size: 1.1rem;
+    /* Inherits .cta-button styles (background, color, etc.) */
 }
 
+/* Form submission messages */
 #form-message p {
-    padding: 10px;
+    padding: 12px 15px;
     border-radius: 4px;
-    margin: 0;
+    margin: 15px 0 0 0;
+    font-weight: bold;
 }
-#form-message p[style*="color: red"] {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-}
-#form-message p[style*="color: green"] {
+#form-message p.success-message { /* Example class for success */
     background-color: #d4edda;
     border: 1px solid #c3e6cb;
+    color: #155724;
+}
+#form-message p.error-message { /* Example class for error */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
 }
 
 
-/* Map Section */
+/* Map Section on Contact Page */
 .map-section {
     margin-top: 40px;
-    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .map-section h2 {
     text-align: center; /* Explicitly center map heading */
+    margin-bottom: 25px;
 }
 .map-section iframe {
     max-width: 100%; /* Ensure map is responsive */
+    border-radius: 5px;
+    height: 400px; /* Default height for map on contact page */
 }
 
 
@@ -796,12 +1041,13 @@ html[data-lang="ar"] .form-group textarea {
         grid-template-columns: 1fr; /* Stack columns */
         gap: 30px;
     }
-    .contact-form-column {
-        order: -1; /* Move form above details on smaller screens if preferred */
+    /* Optional: if you want form first on mobile */
+    /* .contact-form-column {
+        order: -1; 
     }
      html[data-lang="ar"] .contact-form-column {
         order: -1;
-    }
+    } */
 }
 
 @media (max-width: 768px) { /* Mobile */
@@ -816,7 +1062,10 @@ html[data-lang="ar"] .form-group textarea {
         font-size: 1.4rem;
     }
 
-    .contact-form-column {
+    .contact-details-column, .contact-form-column, .map-section {
         padding: 20px;
+    }
+    .map-section iframe {
+        height: 300px; /* Adjust map height on mobile */
     }
 }
