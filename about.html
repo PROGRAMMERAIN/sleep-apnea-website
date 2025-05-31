@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,21 +23,38 @@
     <link rel="alternate" hreflang="ar-DZ" href="https://sleep-apnea-guelma.netlify.app/about.html?lang=ar" />
     <link rel="alternate" hreflang="x-default" href="https://sleep-apnea-guelma.netlify.app/about.html" />
 
-    <!-- You might want to add Open Graph and Twitter Card data for this page too, similar to index.html but specific to "About" -->
-    <meta property="og:title" content="À Propos de Dr. Selma Bakha & du Cabinet - Guelma" />
+    <meta property="og:title" content="À Propos de Dr. Selma Bakha & du Cabinet Sommeil - Guelma" />
     <meta property="og:description" content="Informations sur Dr. Selma Bakha, pneumologue et spécialiste du sommeil à Guelma, et son cabinet." />
-    <meta property="og:type" content="profile" /> <!-- or website -->
+    <meta property="og:type" content="profile" /> <!-- 'profile' for a person, 'website' or 'article' for a general about page -->
     <meta property="og:url" content="https://sleep-apnea-guelma.netlify.app/about.html" />
-    <meta property="og:image" content="https://sleep-apnea-guelma.netlify.app/images/dr-selma-bakha-portrait-page.jpg" /> <!-- ENSURE THIS IMAGE EXISTS -->
+    <meta property="og:image" content="https://sleep-apnea-guelma.netlify.app/images/cabinet-sommeil-guelma-facade.jpg" /> <!-- UPDATED: Fallback to clinic facade image -->
     <meta property="og:locale" content="fr_DZ" />
     <meta property="og:locale:alternate" content="ar_DZ" />
     <meta property="og:site_name" content="Cabinet Sommeil Guelma - Dr. S. Bakha" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="À Propos de Dr. Selma Bakha & du Cabinet - Guelma" />
+    <meta name="twitter:title" content="À Propos de Dr. Selma Bakha & du Cabinet Sommeil - Guelma" />
     <meta name="twitter:description" content="Informations sur Dr. Selma Bakha, pneumologue et spécialiste du sommeil à Guelma." />
-    <meta name="twitter:image" content="https://sleep-apnea-guelma.netlify.app/images/dr-selma-bakha-portrait-page.jpg" /> <!-- ENSURE THIS IMAGE EXISTS -->
+    <meta name="twitter:image" content="https://sleep-apnea-guelma.netlify.app/images/cabinet-sommeil-guelma-facade.jpg" /> <!-- UPDATED: Fallback to clinic facade image -->
 
+    <!-- Optional: JSON-LD for AboutPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "À Propos de Dr. Selma Bakha & du Cabinet Sommeil Guelma",
+      "description": "Informations détaillées sur Dr. Selma Bakha, pneumologue, allergologue et spécialiste du sommeil à Guelma, ainsi que sur son cabinet médical.",
+      "url": "https://sleep-apnea-guelma.netlify.app/about.html",
+      "mainEntity": {
+        "@type": "MedicalClinic",
+        "@id": "https://sleep-apnea-guelma.netlify.app/index.html#MedicalClinic"
+      },
+      "about": {
+        "@type": "Physician",
+        "@id": "https://sleep-apnea-guelma.netlify.app/index.html#DrSelmaBakha"
+      }
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -59,8 +76,12 @@
                         <a href="about.html" class="lang-ar active">عن د. بخة</a>
                     </li>
                     <li>
-                        <a href="apnea.html" class="lang-fr">Apnée du Sommeil</a>
-                        <a href="apnea.html" class="lang-ar">انقطاع التنفس النومي</a>
+                        <a href="apnea.html" class="lang-fr">Apnée du Sommeil & Risques</a>
+                        <a href="apnea.html" class="lang-ar">انقطاع التنفس النومي ومخاطره</a>
+                    </li>
+                     <li>
+                        <a href="diagnostic-domicile.html" class="lang-fr">Diagnostic à Domicile</a>
+                        <a href="diagnostic-domicile.html" class="lang-ar">التشخيص المنزلي</a>
                     </li>
                     <li>
                         <a href="contact.html" class="lang-fr">Contact & RDV</a>
@@ -87,10 +108,22 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image-column">
-                        <img src="https://sleep-apnea-guelma.netlify.app/images/dr-selma-bakha-portrait-page.jpg" alt="Dr. Selma Bakha - Spécialiste du Sommeil, Pneumologue à Guelma" class="doctor-photo">
-                        <!-- If placeholder is still needed for development:
-                        <img src="https://via.placeholder.com/400x450?text=Photo+Dr.+Selma+Bakha" alt="Dr. Selma Bakha - Spécialiste du Sommeil, Pneumologue à Guelma" class="doctor-photo">
-                        -->
+                        <!-- Image 'images/dr-selma-bakha-portrait-page.jpg' has been REMOVED as requested. -->
+                        <!-- You can place a different image here or leave it empty. -->
+                        <!-- For example, a generic clinic interior or a relevant graphic: -->
+                        <!-- <img src="images/clinic-interior-guelma.jpg" alt="Intérieur du Cabinet Sommeil Guelma" class="clinic-photo-generic"> -->
+                         <p class="lang-fr" style="text-align: center; padding: 20px; border: 1px dashed #ccc;">
+                            <em>
+                                Pour une photo de Dr. Bakha, veuillez consulter la page d'accueil ou les informations du cabinet.
+                                Une photo professionnelle de la docteure peut être ajoutée ici pour personnaliser davantage la page.
+                            </em>
+                        </p>
+                        <p class="lang-ar" style="text-align: center; padding: 20px; border: 1px dashed #ccc;">
+                            <em>
+                                للاطلاع على صورة الدكتورة بخة، يرجى الرجوع إلى الصفحة الرئيسية أو معلومات العيادة.
+                                يمكن إضافة صورة احترافية للطبيبة هنا لإضفاء طابع شخصي أكبر على الصفحة.
+                            </em>
+                        </p>
                     </div>
 
                     <div class="about-text-column">
